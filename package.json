@@ -1,0 +1,27 @@
+{
+  "name": "password-generator-cli",
+  "version": "1.0.0",
+  "description": "Strong random password generator using inquirer",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SumaiaSorna/password-generator-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SumaiaSorna/password-generator-cli/issues"
+  },
+  "homepage": "https://github.com/SumaiaSorna/password-generator-cli#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
