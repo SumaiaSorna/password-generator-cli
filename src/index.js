@@ -11,22 +11,22 @@ const questions = [
   {
     type: "confirm",
     message: "Would you like to add lowercase characters?",
-    name: "toLowercase",
+    name: "isLowercase",
   },
   {
     type: "confirm",
     message: "Would you like to add uppercase characters?",
-    name: "toUppercase",
+    name: "isUppercase",
   },
   {
     type: "confirm",
     message: "Would you like to add numeric characters?",
-    name: "toNumeric",
+    name: "isNumeric",
   },
   {
     type: "confirm",
     message: "Would you like to add special characters?",
-    name: "toSpecialCharacters",
+    name: "isSpecialCharacters",
   },
 ];
 
@@ -40,7 +40,24 @@ const retryQuestion = {
 
 // declare verification function
 const validateAnswers = (answers) => {
-  return false;
+  if (answers.lenthOfPassword < 10) {
+    return false;
+  }
+
+  const acceptedChoices = [
+    answers.isLowercase,
+    answers.isUppercase,
+    answers.isNumeric,
+    answers.isSpecialCharacters,
+  ].filter((choice) => {
+    return choice;
+  });
+
+  if (acceptedChoices.length < 2) {
+    return false;
+  }
+
+  return true;
 };
 
 // declare a password generatePassword
@@ -63,6 +80,7 @@ const start = async () => {
       const password = generatePassword(answers);
 
       console.log(`Your random password is ${password}`);
+      inProgress = false;
     } else {
       console.log(
         "\n\nPlease ensure you select a minimum of 2 criteria and a password length greater than 8 characters\n\n"
@@ -71,7 +89,7 @@ const start = async () => {
       // else prompt retry question
       const retryAnswer = await inquirer.prompt(retryQuestion);
 
-      if (retryAnswer.retry) {
+      if (!retryAnswer.retry) {
         inProgress = false;
       }
     }
