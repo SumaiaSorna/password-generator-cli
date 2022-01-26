@@ -4,7 +4,6 @@
   "description": "Strong random password generator using inquirer",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
   "repository": {
@@ -18,9 +17,6 @@
     "url": "https://github.com/SumaiaSorna/password-generator-cli/issues"
   },
   "homepage": "https://github.com/SumaiaSorna/password-generator-cli#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
   "dependencies": {
     "inquirer": "^8.2.0"
   }
